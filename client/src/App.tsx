@@ -1,5 +1,5 @@
 import NoteForm from "./features/notes/NoteForm";
-import NoteItem from "./features/NoteItem";
+import NoteItem from "./features/notes/NoteItem";
 
 const App: React.FC = () => {
   return (
