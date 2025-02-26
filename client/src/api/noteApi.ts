@@ -9,13 +9,16 @@ export const noteApi = createApi({
   tagTypes: ["Note"],
   endpoints: (builder) => ({
     getNotes: builder.query<Note[], void>({
-      query: () => "notes",
+      query: () => "/notes",
       providesTags: ["Note"],
     }),
-    addNote: builder.mutation<Note, Note>({
+    addNote: builder.mutation<Note, { text: string }>({
       query: (newNote) => ({
-        url: "notes",
+        url: "/notes",
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: newNote,
       }),
       invalidatesTags: ["Note"],
