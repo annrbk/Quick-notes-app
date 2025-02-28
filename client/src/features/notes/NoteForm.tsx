@@ -1,23 +1,9 @@
 import { TextField, Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-import { useAddNoteMutation } from "../../api/noteApi";
+import { useNoteActions } from "../../hooks/useNoteActions";
 
 const NoteForm: React.FC = () => {
-  const [text, setText] = useState("");
-  const [addNote] = useAddNoteMutation();
-
-  const handleAdd = async (event: React.FormEvent) => {
-    event.preventDefault();
-
-    try {
-      if (!text.trim()) return;
-      await addNote({ text }).unwrap();
-      setText("");
-    } catch (error) {
-      console.error("Error adding note:", error);
-    }
-  };
+  const { text, setText, handleAdd } = useNoteActions();
 
   return (
     <Box
