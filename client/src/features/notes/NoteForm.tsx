@@ -7,27 +7,37 @@ const NoteForm: React.FC = () => {
 
   return (
     <Box
-      component="form"
-      sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-      onSubmit={handleAdd}
-      autoComplete="off"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+      }}
     >
-      <TextField
-        id="outlined-basic"
-        label="Enter a new note"
-        variant="outlined"
-        sx={{ width: "20%" }}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        required
-      />
-      <Button
-        type="submit"
-        variant="contained"
-        sx={{ alignSelf: "flex-start" }}
+      <Box
+        component="form"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "50%",
+          gap: 2,
+          marginTop: 3,
+        }}
+        onSubmit={handleAdd}
+        autoComplete="off"
       >
-        Save
-      </Button>
+        <TextField
+          id="outlined-basic"
+          label="Enter a new note"
+          variant="outlined"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          required
+        />
+        <Button type="submit" variant="contained" size="large">
+          Save
+        </Button>
+      </Box>
     </Box>
   );
 };

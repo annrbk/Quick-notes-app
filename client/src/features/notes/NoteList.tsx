@@ -34,10 +34,19 @@ const NoteList: React.FC = () => {
       }}
     >
       {notes.length === 0 ? (
-        <p>No notes yet</p>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: 10,
+          }}
+        >
+          <Typography variant="h6">No notes yet</Typography>
+        </Box>
       ) : (
         notes.map((note: Note) => (
-          <Card key={note.noteId} sx={{ maxWidth: 345, marginTop: 10 }}>
+          <Card key={note.noteId} sx={{ maxWidth: 345, marginTop: 5 }}>
             <CardActionArea>
               <CardContent>
                 {editId === note.noteId ? (
